@@ -54,8 +54,8 @@
     "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
     "lucide-react": "https://esm.sh/lucide-react@0.292.0",
     "@google/genai": "https://esm.sh/@google/genai@0.1.1",
-    "gsap": "https://esm.sh/gsap@3.12.2",
-    "gsap/ScrollTrigger": "https://esm.sh/gsap@3.12.2/ScrollTrigger",
+    "gsap": "https://esm.sh/gsap@3.12.5",
+    "gsap/ScrollTrigger": "https://esm.sh/gsap@3.12.5/ScrollTrigger",
     "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
     "react/": "https://esm.sh/react@^19.2.4/",
     "gsap/": "https://esm.sh/gsap@^3.14.2/"
@@ -70,7 +70,7 @@
     <div id="root"></div>
 
     <!-- Application Code -->
-    <script type="text/babel" data-type="module">
+    <script type="text/babel" data-presets="react">
       import React, { useState, useEffect, useRef } from 'react';
       import { createRoot } from 'react-dom/client';
       import { GoogleGenAI } from "@google/genai";
@@ -81,8 +81,10 @@
       // --- POLYFILL & SETUP ---
       gsap.registerPlugin(ScrollTrigger);
       
-      // Handle process.env safely in browser
-      const API_KEY = (typeof process !== 'undefined' && process.env) ? process.env.API_KEY : '';
+      // API Key Handling
+      // Not: GitHub Pages'de process.env çalışmaz. API Key'i buraya manuel yazmanız gerekebilir 
+      // ya da demo modunda (fallback data) çalışır.
+      const API_KEY = ""; 
 
       // --- CONSTANTS ---
       const MENU_ITEMS = [
